@@ -12,4 +12,6 @@
     <color name="text_white">#CBCCD1</color>
     <color name="background_color">#020519</color>
     <color name="yellow">#EDDF60</color>
+    <color name="item_background">#D5020519</color>
+    <color name="details_background">#090D29</color>
 </resources>

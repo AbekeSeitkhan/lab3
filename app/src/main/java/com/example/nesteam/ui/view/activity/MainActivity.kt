@@ -2,11 +2,13 @@ package com.example.nesteam.ui.view.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.nesteam.ui.view.fragment.GamesListFragment
 import com.example.nesteam.R
 import com.example.nesteam.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,12 +16,21 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.fragment_container_view, GamesListFragment.newInstance())
-            .commit()
+        binding.bottomNav.setOnItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.nav_cart -> openFragment(GamesListFragment())
+                R.id.nav_games -> openFragment(GamesListFragment())
+                R.id.nav_search -> openFragment(GamesListFragment())
+            }
+            true
+        }
+        openFragment(GamesListFragment())
+    }
 
+    private fun openFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container_view, fragment)
+            .commit()
     }
 }
-
 

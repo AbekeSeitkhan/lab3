@@ -1,9 +1,11 @@
 package com.example.nesteam.data.model.entity
 
 import com.google.gson.annotations.SerializedName
-import org.
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+import java.io.Serializable
 
-@Parselize
+@Parcelize
 data class Result(
 
     @SerializedName("id") val id: Int,
@@ -12,6 +14,7 @@ data class Result(
     @SerializedName("background_image") val backgroundImage: String,
     @SerializedName("rating") val rating: Double,
     @SerializedName("metacritic") val metacritic: Int,
-
-)
+    @SerializedName("esrb_rating") val esrbRating: EsrbRating?,
+    @SerializedName("genres") val genres: List<Genre>
+) : Parcelable, Serializable
 
