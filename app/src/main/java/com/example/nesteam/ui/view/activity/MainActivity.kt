@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.nesteam.ui.view.fragment.GamesListFragment
 import com.example.nesteam.R
 import com.example.nesteam.databinding.ActivityMainBinding
+import com.example.nesteam.ui.view.fragment.CartFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNav.setOnItemSelectedListener { item ->
             when(item.itemId) {
-                R.id.nav_cart -> openFragment(GamesListFragment())
+                R.id.nav_cart -> openFragment(CartFragment())
                 R.id.nav_games -> openFragment(GamesListFragment())
                 R.id.nav_search -> openFragment(GamesListFragment())
             }
