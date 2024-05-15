@@ -1,7 +1,9 @@
 package com.example.nesteam.data.model.entity
 
 import com.google.gson.annotations.SerializedName
+import org.
 
+@Parselize
 data class Result(
 
     @SerializedName("id") val id: Int,

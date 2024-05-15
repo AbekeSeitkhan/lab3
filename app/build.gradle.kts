@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -50,6 +51,8 @@ android {
 }
 
 dependencies {
+
+    implementation("org.jsoup:jsoup:1.13.1")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
 
