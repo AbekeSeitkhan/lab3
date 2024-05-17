@@ -7,6 +7,7 @@ import com.example.nesteam.ui.view.fragment.GamesListFragment
 import com.example.nesteam.R
 import com.example.nesteam.databinding.ActivityMainBinding
 import com.example.nesteam.ui.view.fragment.CartFragment
+import com.example.nesteam.ui.view.fragment.SearchFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             when(item.itemId) {
                 R.id.nav_cart -> openFragment(CartFragment())
                 R.id.nav_games -> openFragment(GamesListFragment())
-                R.id.nav_search -> openFragment(GamesListFragment())
+                R.id.nav_search -> openFragment(SearchFragment())
             }
             true
         }

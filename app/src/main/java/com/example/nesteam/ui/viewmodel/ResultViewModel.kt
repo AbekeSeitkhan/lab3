@@ -1,5 +1,6 @@
 package com.example.nesteam.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,6 +19,18 @@ class ResultViewModel(private val repository: ResultRepository): ViewModel() {
         viewModelScope.launch {
             val gamesList = repository.getGames()
             _results.postValue(gamesList.map { it })
+        }
+    }
+
+    private val _searchResults = MutableLiveData<List<Result>>()
+    val searchResults: LiveData<List<Result>> = _searchResults
+
+    fun searchGames(query: String) {
+        viewModelScope.launch {
+            Log.d("SearchFragment", "Searching for games with query: $query")
+            val results = repository.searchGames(query)
+            Log.d("SearchFragment", "Results fetched: $results")
+            _searchResults.postValue(results)
         }
     }
 
