@@ -19,4 +19,10 @@ interface ApiServiceInterface {
         @Path("id") gameId:Int,
         @Query("key") apiKey: String
     ):Response<Game>
+
+    @GET("games")
+    suspend fun searchGames(
+        @Query("key") apiKey: String,
+        @Query("search") gameName: String
+    ): Response<GameResponse>
 }
